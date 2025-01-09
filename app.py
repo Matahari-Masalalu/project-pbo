@@ -18,12 +18,18 @@ calories_page = st.Page(
     icon=":material/local_fire_department:"
 )
 
+skin_page = st.Page(
+    page="views/skin.py",
+    title="skin",
+    icon=":material/dermatology:"
+)
+
 about_page = st.Page(
     page="views/about.py",
     title="about",
     icon=":material/info:"
 )
 
-pg = st.navigation(pages=[home_page,obsity_page,calories_page,about_page])
+pg = st.navigation(pages=[home_page,obsity_page,calories_page,skin_page,about_page])
 
 pg.run()
