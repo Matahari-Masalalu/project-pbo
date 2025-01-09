@@ -1,119 +1,65 @@
 import streamlit as st
-import pandas as pd
-import matplotlib.pyplot as plt
 
-st.title("Home")
+# Judul Aplikasi
+st.markdown("<h2 style='text-align: center; color: #00000;'>Selamat Datang di Aplikasi Kesehatan</h2>", unsafe_allow_html=True)
 
-
-st.title("🌟 Selamat Datang di Kalkulator BMI 🌟")
-st.image("https://example.com/your-image.jpg", use_column_width=True)  # Ganti dengan URL gambar yang sesuai
-
-# Informasi tentang Obesitas
-st.header("Apa itu Obesitas?")
+# Deskripsi Aplikasi
 st.write("""
-    Obesitas adalah kondisi medis yang ditandai dengan kelebihan lemak tubuh. 
-    Ini dapat meningkatkan risiko berbagai penyakit, termasuk diabetes, penyakit jantung, dan beberapa jenis kanker.
+    Aplikasi ini dirancang untuk membantu Anda memahami dan mengelola kesehatan Anda dengan lebih baik. 
+    Kami menyediakan berbagai fitur, termasuk:
 """)
-st.image("https://example.com/obesity-image.jpg", use_column_width=True)  # Ganti dengan URL gambar yang sesuai
+st.markdown("""
+    <ul style='font-size: 18px;'>
+        <li><strong>Kalkulator BMI</strong>: Menghitung Indeks Massa Tubuh Anda untuk menilai status berat badan.</li>
+        <li><strong>Kalkulator Kalori Harian</strong>: Menghitung kebutuhan kalori harian berdasarkan berat badan, tinggi badan, usia, dan tingkat aktivitas.</li>
+        <li><strong>Prediksi Penyakit Kulit</strong>: Menggunakan teknologi machine learning untuk mendiagnosis dan memprediksi penyakit kulit berdasarkan gambar.</li>
+    </ul>
+""", unsafe_allow_html=True)
 
-# Indeks Massa Tubuh (BMI)
-st.subheader("Indeks Massa Tubuh (BMI) 📏")
+# Informasi Tambahan
+st.subheader("Mengapa Penting untuk Memantau Kesehatan Anda?")
 st.write("""
-    BMI adalah ukuran yang digunakan untuk menilai berat badan seseorang berdasarkan tinggi badan. 
-    Ini dihitung dengan rumus:
-    
-    \[
-    BMI = \frac{berat \, (kg)}{(tinggi \, (m))^2}
-    \]
-
-    **Kategori BMI:**
-    - **Kekurangan berat badan**: BMI < 18.5
-    - **Normal**: 18.5 ≤ BMI < 24.9
-    - **Kelebihan berat badan**: 25 ≤ BMI < 29.9
-    - **Obesitas**: BMI ≥ 30
+    Memantau kesehatan Anda adalah langkah penting untuk mencegah penyakit dan menjaga kualitas hidup. 
+    Dengan menggunakan aplikasi ini, Anda dapat:
 """)
+st.markdown("""
+    <ul style='font-size: 18px;'>
+        <li>Memahami status kesehatan Anda melalui BMI dan kalori harian.</li>
+        <li>Mendeteksi potensi masalah kesehatan lebih awal dengan prediksi penyakit kulit.</li>
+        <li>Mengambil langkah-langkah yang diperlukan untuk menjaga kesehatan Anda.</li>
+    </ul>
+""", unsafe_allow_html=True)
 
-# Pentingnya Memantau BMI
-st.subheader("Mengapa Penting untuk Memantau BMI? 🩺")
-st.write("""
-    Memantau BMI Anda dapat membantu Anda memahami status kesehatan Anda dan mengambil langkah-langkah yang diperlukan untuk 
-    menjaga berat badan yang sehat. Jika Anda memiliki pertanyaan atau kekhawatiran tentang berat badan Anda, 
-    disarankan untuk berkonsultasi dengan profesional kesehatan.
-""")
+# Penutup
+st.write("<h3>Mari kita jaga kesehatan bersama!</h3>", unsafe_allow_html=True)
 
-# Faktor Penyebab Obesitas
-st.subheader("Faktor Penyebab Obesitas 🔍")
-st.write("""
-    Beberapa faktor yang dapat menyebabkan obesitas meliputi:
-    - **Genetik**: Riwayat keluarga dapat mempengaruhi kecenderungan seseorang untuk mengalami obesitas.
-    - **Gaya Hidup**: Pola makan yang tidak sehat dan kurangnya aktivitas fisik dapat berkontribusi pada obesitas.
-    - **Lingkungan**: Akses terbatas ke makanan sehat dan fasilitas olahraga dapat meningkatkan risiko obesitas.
-    - **Faktor Psikologis**: Stres, depresi, dan masalah emosional lainnya dapat memicu kebiasaan makan yang tidak sehat.
-""")
+# Footer
 
-st.subheader("Dampak Kesehatan dari Obesitas")
-st.write("""
-    Obesitas dapat menyebabkan berbagai masalah kesehatan, termasuk:
-    - Penyakit jantung
-    - Diabetes tipe 2
-    - Hipertensi
-    - Masalah tidur (sleep apnea)
-    - Beberapa jenis kanker
-""")
+# HTML untuk footer yang lebih menarik
+footer_html = """
+<div style="text-align: center; padding: 20px; background-color: #f8f9fa; color: black; border-top: 2px solid #000000;">
+    <h4 style="margin-bottom: 10px;">Follow Us on Instagram</h4>
+    <a href="https://www.instagram.com/faishalah97?igsh=azA0dGFjM3lkd2Jm" target="_blank" style="color: blue; text-decoration: none; margin: 0 15px; font-size: 18px; transition: color 0.3s;">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 50 50" style="vertical-align: middle; margin-right: 5px;">
+            <path d="M 16 3 C 8.8324839 3 3 8.8324839 3 16 L 3 34 C 3 41.167516 8.8324839 47 16 47 L 34 47 C 41.167516 47 47 41.167516 47 34 L 47 16 C 47 8.8324839 41.167516 3 34 3 L 16 3 z M 16 5 L 34 5 C 40.086484 5 45 9.9135161 45 16 L 45 34 C 45 40.086484 40.086484 45 34 45 L 16 45 C 9.9135161 45 5 40.086484 5 34 L 5 16 C 5 9.9135161 9.9135161 5 16 5 z M 37 11 A 2 2 0 0 0 35 13 A 2 2 0 0 0 37 15 A 2 2 0 0 0 39 13 A 2 2 0 0 0 37 11 z M 25 14 C 18.936712 14 14 18.936712 14 25 C 14 31.063288 18.936712 36 25 36 C 31.063288 36 36 31.063288 36 25 C 36 18.936712 31.063288 14 25 14 z M 25 16 C 29.982407 16 34 20.017593 34 25 C 34 29.982407 29.982407 34 25 34 C 20.017593 34 16 29.982407 16 25 C 16 20.017593 20.017593 16 25 16 z"></path>
+        </svg>
+        faishalah97
+    </a>
+    <a href="https://www.instagram.com/haydarfahri" target="_blank" style="color: blue; text-decoration: none; margin: 0 15px; font-size: 18px; transition: color 0.3s;">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 50 50" style="vertical-align: middle; margin-right: 5px;">
+            <path d="M 16 3 C 8.8324839 3 3 8.8324839 3 16 L 3 34 C 3 41.167516 8.8324839 47 16 47 L 34 47 C 41.167516 47 47 41.167516 47 34 L 47 16 C 47 8.8324839 41.167516 3 34 3 L 16 3 z M 16 5 L 34 5 C 40.086484 5 45 9.9135161 45 16 L 45 34 C 45 40.086484 40.086484 45 34 45 L 16 45 C 9.9135161 45 5 40.086484 5 34 L 5 16 C 5 9.9135161 9.9135161 5 16 5 z M 37 11 A 2 2 0 0 0 35 13 A 2 2 0 0 0 37 15 A 2 2 0 0 0 39 13 A 2 2 0 0 0 37 11 z M 25 14 C 18.936712 14 14 18.936712 14 25 C 14 31.063288 18.936712 36 25 36 C 31.063288 36 36 31.063288 36 25 C 36 18.936712 31.063288 14 25 14 z M 25 16 C 29.982407 16 34 20.017593 34 25 C 34 29.982407 29.982407 34 25 34 C 20.017593 34 16 29.982407 16 25 C 16 20.017593 20.017593 16 25 16 z"></path>
+        </svg>
+        haydarfahri
+    </a>
+    <a href="https://www.instagram.com/mumtazfn" target="_blank" style="color: blue; text-decoration: none; margin: 0 15px; font-size: 18px; transition: color 0.3s;">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 50 50" style="vertical-align: middle; margin-right: 5px;">
+            <path d="M 16 3 C 8.8324839 3 3 8.8324839 3 16 L 3 34 C 3 41.167516 8.8324839 47 16 47 L 34 47 C 41.167516 47 47 41.167516 47 34 L 47 16 C 47 8.8324839 41.167516 3 34 3 L 16 3 z M 16 5 L 34 5 C 40.086484 5 45 9.9135161 45 16 L 45 34 C 45 40.086484 40.086484 45 34 45 L 16 45 C 9.9135161 45 5 40.086484 5 34 L 5 16 C 5 9.9135161 9.9135161 5 16 5 z M 37 11 A 2 2 0 0 0 35 13 A 2 2 0 0 0 37 15 A 2 2 0 0 0 39 13 A 2 2 0 0 0 37 11 z M 25 14 C 18.936712 14 14 18.936712 14 25 C 14 31.063288 18.936712 36 25 36 C 31.063288 36 36 31.063288 36 25 C 36 18.936712 31.063288 14 25 14 z M 25 16 C 29.982407 16 34 20.017593 34 25 C 34 29.982407 29.982407 34 25 34 C 20.017593 34 16 29.982407 16 25 C 16 20.017593 20.017593 16 25 16 z"></path>
+        </svg>
+        mumtazfn
+    </a>
+    <p style="margin-top: 10px; font-size: 14px;">&copy; 2023 Aplikasi Kesehatan. All rights reserved.</p>
+</div>
+"""
 
-st.markdown("---")
-
-# Data prevalensi obesitas
-data = {
-    'Tahun': [2007, 2013, 2016, 2018],
-    'Perkotaan': [23.8, 30.7, 38.5, 39.7],
-    'Perdesaan': [15.3, 21.5, 28.5, 30.0],
-    'Perkotaan+Perdesaan': [19.1, 26.3, 33.5, 35.4]
-}
-
-df = pd.DataFrame(data)
-
-# Penjelasan tentang data
-st.subheader("Data Prevalensi Obesitas")
-st.write("""
-    Berikut adalah data prevalensi obesitas pada penduduk berusia di atas 18 tahun berdasarkan klasifikasi 
-    perkotaan dan perdesaan dari tahun 2007 hingga 2018. Data ini menunjukkan persentase populasi yang mengalami 
-    obesitas di masing-masing kategori. 
-    - **Perkotaan**: Persentase obesitas di daerah perkotaan.
-    - **Perdesaan**: Persentase obesitas di daerah perdesaan.
-    - **Perkotaan+Perdesaan**: Rata-rata prevalensi obesitas di seluruh populasi yang mencakup baik daerah perkotaan 
-        maupun perdesaan.
-```python
-""")
-
-# Membuat visualisasi
-plt.figure(figsize=(10, 5))
-plt.plot(df['Tahun'], df['Perkotaan'], marker='o', label='Perkotaan', color='blue', linewidth=2)
-plt.plot(df['Tahun'], df['Perdesaan'], marker ='o', label='Perdesaan', color='green', linewidth=2)
-plt.plot(df['Tahun'], df['Perkotaan+Perdesaan'], marker='o', label='Perkotaan+Perdesaan', color='orange', linewidth=2)
-
-plt.title('📊 Prevalensi Obesitas pada Penduduk Umur > 18 Tahun (2007-2018)', fontsize=16)
-plt.xlabel('Tahun', fontsize=12)
-plt.ylabel('Prevalensi Obesitas (%)', fontsize=12)
-plt.xticks(df['Tahun'])
-plt.legend()
-plt.grid()
-st.pyplot(plt)
-
-# Kesimpulan dari data
-st.subheader("Kesimpulan dari Data")
-st.write("""
-    Dari data yang ditampilkan, kita dapat melihat tren peningkatan prevalensi obesitas di daerah perkotaan 
-    dan perdesaan dari tahun 2007 hingga 2018. 
-    - **Perkotaan** menunjukkan peningkatan yang lebih signifikan dibandingkan dengan **perdesaan**, 
-        dengan prevalensi obesitas mencapai hampir 40% pada tahun 2018.
-    - **Perdesaan** juga menunjukkan peningkatan, tetapi dengan angka yang lebih rendah, mencapai sekitar 30%.
-    - Rata-rata prevalensi obesitas di seluruh populasi (Perkotaan+Perdesaan) juga menunjukkan tren yang meningkat, 
-        dari 19.1% pada tahun 2007 menjadi 35.4% pada tahun 2018.
-    
-    Hal ini menunjukkan bahwa obesitas menjadi masalah kesehatan yang semakin serius di masyarakat, 
-    baik di daerah perkotaan maupun perdesaan. Penting untuk meningkatkan kesadaran dan upaya pencegahan 
-    terhadap obesitas melalui pendidikan kesehatan, akses ke makanan sehat, dan promosi gaya hidup aktif.
-""")
-
-st.write("Silakan pilih menu di samping untuk mulai menghitung BMI Anda. Mari kita jaga kesehatan bersama!")
+# Menampilkan footer
+st.markdown(footer_html, unsafe_allow_html=True)
