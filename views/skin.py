@@ -69,7 +69,7 @@ if st.session_state.page == "info":
 
 elif st.session_state.page == "predict":
     # Load model and labels
-    model_path = 'model/model.h5'
+    model_path = 'model/model.tflite'
     label_path = 'model/labels.txt'
     model = load_model(model_path)
     class_names = load_labels(label_path)
