@@ -9,20 +9,36 @@ def load_labels(label_path):
         labels = [line.strip().split(' ', 1)[1] for line in file.readlines()]
     return labels
 
-# Load model
+# Load TFLite model
 @st.cache_resource
 def load_model(model_path):
-    return tf.keras.models.load_model(model_path)
+    # Load the TFLite model and create an interpreter
+    interpreter = tf.lite.Interpreter(model_path=model_path)
+    interpreter.allocate_tensors()
+    
+    # Get input and output details
+    input_details = interpreter.get_input_details()
+    output_details = interpreter.get_output_details()
+    
+    return interpreter, input_details, output_details
 
 # Classify image
-def classify_image(image, model, class_names, img_size=(450, 450)):
+def classify_image(image, interpreter, input_details, output_details, class_names, img_size=(450, 450)):
     image = ImageOps.fit(image, img_size, Image.Resampling.LANCZOS)  # Resize image
-    image_array = np.asarray(image) / 255.0  # Normalize image
-    data = np.expand_dims(image_array, axis=0)  # Expand dimensions for the model input
+    image_array = np.asarray(image) / 255.0  # Normalize image to be between 0 and 1
+    data = np.expand_dims(image_array, axis=0).astype(np.float32)  # Expand dimensions for model input
 
-    prediction = model.predict(data)
+    # Prepare the input tensor
+    interpreter.set_tensor(input_details[0]['index'], data)
+    
+    # Run the model
+    interpreter.invoke()
+
+    # Get the output tensor
+    prediction = interpreter.get_tensor(output_details[0]['index'])
     top_prob_index = np.argmax(prediction[0])
     confidence_score = float(prediction[0][top_prob_index])
+    
     return class_names[top_prob_index], confidence_score
 
 # Streamlit UI setup
@@ -71,7 +87,7 @@ elif st.session_state.page == "predict":
     # Load model and labels
     model_path = 'model/model.tflite'
     label_path = 'model/labels.txt'
-    model = load_model(model_path)
+    interpreter, input_details, output_details = load_model(model_path)
     class_names = load_labels(label_path)
 
     # Upload image
@@ -81,7 +97,7 @@ elif st.session_state.page == "predict":
         image = Image.open(uploaded_file)
         
         # Classify the image
-        class_name, confidence_score = classify_image(image, model, class_names)
+        class_name, confidence_score = classify_image(image, interpreter, input_details, output_details, class_names)
 
         # Display the classification result above the image
         st.write(f"Prediksi Kelas: **{class_name}**")
